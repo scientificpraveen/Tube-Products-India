@@ -52,7 +52,7 @@
         <!-- Row 1: Size (Width * Thickness) and Source & Quality -->
         <tr>
             <td colspan="2">
-           <span>Size =</span>     <input type="text" id="width-input" placeholder="Width" style="width: 100px;" oninput="calculateAdded()"> <span>X</span>
+           <span>Size =</span>     <input type="text" id="width-input" value="Width" style="width: 100px;" oninput="calculateAdded()"> <span>X</span>
                 <select id="thickness-input" onchange="showOptions()">
                     <option value="">Select Thickness</option>
                     <option value="3.6">3.6</option>
@@ -85,12 +85,12 @@
         <!-- Row 2: Nos of (Column 2 to 7) -->
         <tr>
             <td rowspan="2">Nos of</td>
-            <td rowspan="2"><input type="number" id="nos2" placeholder="Column 2" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos3" placeholder="Column 3" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos4" placeholder="Column 4" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos5" placeholder="Column 5" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos6" placeholder="Column 6" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos7" placeholder="Column 7" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos2" value="Column 2" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos3" value="Column 3" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos4" value="Column 4" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos5" value="Column 5" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos6" value="Column 6" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos7" value="Column 7" min="0" step="1"></td>
             <td style="background-color: yellow;"><span>Plan Width</span></td>
         </tr>
         <tr>
@@ -100,12 +100,12 @@
         <!-- Row 3: SLIT WIDTH -->
         <tr>
             <td rowspan="2">Slit Width</td>
-            <td rowspan="2"><input type="number" id="slit2" placeholder="Column 2" step="0.01"></td>
-            <td rowspan="2"><input type="number" id="slit3" placeholder="Column 3" step="0.01"></td>
-            <td rowspan="2"><input type="number" id="slit4" placeholder="Column 4" step="0.01"></td>
-            <td rowspan="2"><input type="number" id="slit5" placeholder="Column 5" step="0.01"></td>
-            <td rowspan="2"><input type="number" id="slit6" placeholder="Column 6" step="0.01"></td>
-            <td rowspan="2"><input type="number" id="slit7" placeholder="Column 7" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit2" value="Column 2" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit3" value="Column 3" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit4" value="Column 4" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit5" value="Column 5" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit6" value="Column 6" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit7" value="Column 7" step="0.01"></td>
              <td style="background-color: orange;"><span>Scrap Width</span></td>
         </tr>
         <tr>
@@ -116,26 +116,26 @@
         <!-- Row 6: Replace Merged Columns with HOR CLEARANCE -->
         <tr>
             <td rowspan="4">Coil No.</td>
-            <td colspan="4"><input type="text" placeholder=""></td>
+            <td colspan="4"><input type="text" value=""></td>
             <td colspan="3"><span>HOR Clearance</span></td>
         </tr>
 
         <!-- Row 7: HOR CLEARANCE Output -->
         <tr>
-            <td colspan="4"><input type="text" placeholder=""></td>
-            <td style="background-color: pink;" colspan="3"><input type="text" placeholder="HOR CLEARANCE Output" id="hor-clearance-output" readonly></td>
+            <td colspan="4"><input type="text" value=""></td>
+            <td style="background-color: pink;" colspan="3"><input type="text" value="" id="hor-clearance-output" readonly></td>
         </tr>
 
         <!-- Row 8: Static text for ADDED -->
         <tr>
-            <td colspan="4"><input type="text" placeholder=""></td>
+            <td colspan="4"><input type="text" value=""></td>
             <td style="background-color: violet;"colspan="3"><span>Added</span></td>
         </tr>
 
         <!-- Row 9: ADDED Input Field -->
         <tr>
-            <td colspan="4"><input type="text" placeholder=""></td>
-            <td colspan="3"><input type="text" placeholder="ADDED" id="added-input" readonly></td>
+            <td colspan="4"><input type="text" value=""></td>
+            <td colspan="3"><input type="text" value="" id="added-input" readonly></td>
         </tr>
     </table>
 
