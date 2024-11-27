@@ -178,7 +178,7 @@
             <td class="col1"colspan="4">
            <span class="size-label">Size =</span>     
                 <input type="text" id="width-input" value="Width" style="width: 150px;" oninput="calculateAdded()"> <span class="size-label">X</span>
-                <select id="thickness-input" onchange="showOptions()">
+                <select id="thickness-input" >
                     <option value="">Select Thickness</option>
                     <option value="3.6">3.6</option>
                     <option value="4.2">4.2</option>
@@ -198,13 +198,11 @@
             <td colspan="2">
               <span class="size-label">Source: </span> <select id="source-input" disabled>
                     <option value="">Select Source</option>
-                    <option value="-">-</option>
                 </select>
             </td>
             <td colspan="2">
                <span class="size-label">Quality: </span> <select id="quality-select" disabled>
              <option value="">Select Quality</option>
-                   <option value="-">-</option>
                 </select>
             </td>
         </tr>
