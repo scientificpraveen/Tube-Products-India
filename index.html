@@ -374,6 +374,7 @@
         const inputs = document.querySelectorAll('input[type="number"]');
         inputs.forEach(input => {
             input.addEventListener('input', calculatePlanWidth);
+            input.addEventListener('input', calculateScrapWidth);
         });
     </script>
 </body>
