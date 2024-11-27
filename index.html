@@ -329,11 +329,12 @@
 
             const TH = parseFloat(thickness);
             const SO = qlsel;       //parseInt(document.getElementById('source-input').value);
-            const QL = qlsel;         //parseInt(document.getElementById('quality-select').value);
+            //const QL = qlsel;         //parseInt(document.getElementById('quality-select').value);
 
             qualitySelect.addEventListener('change', () => {
                 const quality = qualitySelect.value;
-                horClearanceOutput.value = quality;//horClearanceMap[thickness][quality] || '';
+                const QL = parseInt(qualitySelect.value);
+                horClearanceOutput.value = QL;                    //horClearanceMap[thickness][quality] || '';
 
                 if(thickness=5.9 && QL==68 && SO==2)
                 {
