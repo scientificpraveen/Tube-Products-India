@@ -326,9 +326,9 @@
                 });
             }
 
-            const TH = parseInt(document.getElementById('thickness-input').value) || 0;
-            const SO = parseInt(document.getElementById('source-input').value) || 0;
-            const QL = String(document.getElementById('quality-select').value) || 0;
+            const TH = parseInt(document.getElementById('thickness-input').value);
+            const SO = parseInt(document.getElementById('source-input').value);
+            const QL = String(document.getElementById('quality-select').value);
 
             qualitySelect.addEventListener('change', () => {
                 const quality = qualitySelect.value;
