@@ -326,13 +326,13 @@
                 });
             }
 
-            const TH = parseInt(document.getElementById('thickness-input').value);
+            const TH = parseInt(thickness);
             const SO = parseInt(document.getElementById('source-input').value);
             const QL = String(document.getElementById('quality-select').value);
 
             qualitySelect.addEventListener('change', () => {
                 const quality = qualitySelect.value;
-                horClearanceOutput.value = thickness;//horClearanceMap[thickness][quality] || '';
+                horClearanceOutput.value = TH;//horClearanceMap[thickness][quality] || '';
 
                 if(thickness=5.9)//&& QL==68 && SO=="ES")
                 {
