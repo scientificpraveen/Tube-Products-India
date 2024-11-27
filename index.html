@@ -12,35 +12,39 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Wrapper for the table, ensuring it is centered and maintains proper scale */
+        /* Wrapper for the table */
         .table-container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh; /* Full viewport height */
             width: 100vw; /* Full viewport width */
-            overflow: hidden;
         }
 
         table {
             display: flex;
             flex-direction: column;
-            width: 90%; /* Adapt to 90% of parent container */
-            max-width: 1920px; /* Restrict max width for higher resolution */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
             border-collapse: collapse;
-            font-size: calc(12px + 0.5vw); /* Font scales with viewport width */
+            font-size: calc(10px + 0.5vw); /* Responsive font size */
         }
 
         tr {
             display: flex;
+            flex: 1; /* Rows take equal height */
         }
 
         td, th {
             flex: 1;
             text-align: center;
-            border: 1px solid black;
-            padding: 1%; /* Padding scales based on parent container */
+            padding: 0.5%; /* Padding scales with table */
             box-sizing: border-box;
+        }
+
+        /* Remove table border */
+        td, th {
+            border: none;
         }
 
         /* Inputs inherit transparency and fit parent container */
@@ -58,40 +62,30 @@
             color: #333;
         }
 
-        /* Adding skyblue color for row 2 */
+        /* Row-specific colors */
         tr:nth-child(2) td {
             background-color: skyblue;
         }
 
-        /* Adding light green color for Slit Width row */
         tr:nth-child(4) td,
         tr:nth-child(5) td {
             background-color: lightgreen;
         }
 
-        /* Adding orange color for Scrap Width row */
         tr:nth-child(5) td:last-child {
             background-color: orange;
         }
 
-        /* Adding yellow color for Plan Width row */
         tr:nth-child(3) td:last-child {
             background-color: yellow;
         }
 
-        /* Adding pink color for HOR Clearance row */
         tr:nth-child(6) td:last-child {
             background-color: pink;
         }
 
-        /* Adding violet color for Added row */
         tr:nth-child(9) td:last-child {
             background-color: violet;
-        }
-
-        /* Ensure table inputs scale properly */
-        input[type="number"], input[type="text"], select {
-            font-size: calc(12px + 0.5vw);
         }
     </style>
 </head>
@@ -101,8 +95,8 @@
             <!-- Row 1: Size (Width * Thickness) and Source & Quality -->
             <tr>
                 <td colspan="2">
-                    <span>Size =</span>     
-                    <input type="text" id="width-input" value="Width" style="width: 100px;" oninput="calculateAdded()"> 
+                    <span>Size =</span>
+                    <input type="text" id="width-input" value="Width" oninput="calculateAdded()"> 
                     <span>X</span>
                     <select id="thickness-input" onchange="showOptions()">
                         <option value="">Select Thickness</option>
@@ -169,7 +163,7 @@
                 <td><span></span></td>
             </tr>
 
-            <!-- Row 6: Replace Merged Columns with HOR CLEARANCE -->
+            <!-- Row 6: HOR CLEARANCE -->
             <tr>
                 <td rowspan="4">Coil No.</td>
                 <td colspan="4"><input type="text" value=""></td>
