@@ -327,12 +327,12 @@
             }
 
             const TH = parseFloat(thickness);
-            const SO = parseInt(document.getElementById('source-input').value);
+            const SO = option.value//parseInt(document.getElementById('source-input').value);
             const QL = parseInt(document.getElementById('quality-select').value);
 
             qualitySelect.addEventListener('change', () => {
                 const quality = qualitySelect.value;
-                horClearanceOutput.value = sourceInput;//horClearanceMap[thickness][quality] || '';
+                horClearanceOutput.value = SO;//horClearanceMap[thickness][quality] || '';
 
                 if(thickness=5.9 && QL==68 && SO==2)
                 {
