@@ -42,7 +42,17 @@
         /* Adding violet color for Added row */
         tr:nth-child(9) td:last-child {
             background-color: violet;
-        } 
+        }
+        
+        input[type="number"], input[type="text"] {
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            font-size: 50px;
+            font-weight: bold;
+            color: black;
+            font-family: 'Canva Sans', sans-serif;
+        }
    
 
     </style>  
@@ -52,7 +62,8 @@
         <!-- Row 1: Size (Width * Thickness) and Source & Quality -->
         <tr>
             <td colspan="2">
-           <span>Size =</span>     <input type="text" id="width-input" value="Width" style="width: 100px;" oninput="calculateAdded()"> <span>X</span>
+           <span>Size =</span>     
+                <input type="text" id="width-input" value="Width" style="width: 100px;" oninput="calculateAdded()"> <span>X</span>
                 <select id="thickness-input" onchange="showOptions()">
                     <option value="">Select Thickness</option>
                     <option value="3.6">3.6</option>
