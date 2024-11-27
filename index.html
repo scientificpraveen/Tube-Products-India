@@ -334,9 +334,9 @@
                 const quality = qualitySelect.value;
                 horClearanceOutput.value = thickness;//horClearanceMap[thickness][quality] || '';
 
-                if(TH=5.9 && QL==68 && SO=="ES")
+                if(thickness=5.9)//&& QL==68 && SO=="ES")
                 {
-                    horClearanceOutput.value =TH;
+                    horClearanceOutput.value =10;
                 }
             });
         }
