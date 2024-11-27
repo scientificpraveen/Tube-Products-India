@@ -64,13 +64,38 @@
             font-weight: bold;
         }
 
-        #size-label {
+        #source-input {
             font-size: 50px;  /* Increase font size */
             background-color: transparent;  /* Make background transparent */
             border: 1px solid #ddd;  /* Optional: Add a border for clarity */
             padding: 10px;  /* Optional: Adjust padding for better appearance */
             font-weight: bold;
         }
+
+        #quality-select {
+            font-size: 50px;  /* Increase font size */
+            background-color: transparent;  /* Make background transparent */
+            border: 1px solid #ddd;  /* Optional: Add a border for clarity */
+            padding: 10px;  /* Optional: Adjust padding for better appearance */
+            font-weight: bold;
+        }
+
+        #plan-width-output {
+            font-size: 50px;  /* Increase font size */
+            background-color: transparent;  /* Make background transparent */
+            border: 1px solid #ddd;  /* Optional: Add a border for clarity */
+            padding: 10px;  /* Optional: Adjust padding for better appearance */
+            font-weight: bold;
+        }
+
+        #plan-width-output {
+            font-size: 50px;  /* Increase font size */
+            background-color: transparent;  /* Make background transparent */
+            border: 1px solid #ddd;  /* Optional: Add a border for clarity */
+            padding: 10px;  /* Optional: Adjust padding for better appearance */
+            font-weight: bold;
+        }
+
         
         input[readonly] {
             background-color: #f9f9f9;
@@ -185,12 +210,12 @@
         <!-- Row 2: Nos of (Column 2 to 7) -->
         <tr class="col2">
             <td rowspan="2"><span class="size-label">Nos Of</span></td>
-            <td rowspan="2"><input type="number" id="nos2"style="width: 150px; value="Column 2" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos3"style="width: 150px; value="Column 3" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos4"style="width: 150px; value="Column 4" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos5"style="width: 150px; value="Column 5" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos6"style="width: 150px; value="Column 6" min="0" step="1"></td>
-            <td rowspan="2"><input type="number" id="nos7"style="width: 150px; value="Column 7" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos2"style="width: 60px; value="Column 2" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos3"style="width: 60px; value="Column 3" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos4"style="width: 60px; value="Column 4" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos5"style="width: 60px; value="Column 5" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos6"style="width: 60px; value="Column 6" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos7"style="width: 60px; value="Column 7" min="0" step="1"></td>
             <td class="col5" style="background-color: yellow;"><span class="size-label">Plan Width</span></td>
         </tr>
         <tr class="col5">
@@ -209,7 +234,7 @@
              <td class="col5" style="background-color: orange;"><span class="size-label">Scrap Width</span></td>
         </tr>
         <tr class="col5">
-            <td><span></span></td>
+            <td id="scrap-width-output"><span> </span></td>
         </tr>
         
 
@@ -335,6 +360,15 @@
             // Display result
             document.getElementById('plan-width-output').innerText = planWidth.toFixed(2);
         }
+
+        function calculatePlanWidth() {  
+            const width = parseInt(document.getElementById('width-input').value) || 0;
+            const plan = parseInt(document.getElementById('plan-width-output').value) || 0;
+
+            const scrapWidth=width-plan;
+            document.getElementById('scrap-width-output').innerText = scrapWidth.toFixed(2);
+        }
+            
 
         // Add event listeners to input fields
         const inputs = document.querySelectorAll('input[type="number"]');
