@@ -395,7 +395,7 @@
             qualitySelect.addEventListener('change', () => {
                 const quality = qualitySelect.value;
                 const filteredQualityData = filteredData.filter(item => item.quality === quality);
-
+            
                 // Populate Source Input options
                 sourceInput.innerHTML = '<option value="">Select Source</option>';
                 const sources = [...new Set(filteredQualityData.flatMap(item => item.sources))];
@@ -405,10 +405,15 @@
                     option.text = source;
                     sourceInput.appendChild(option);
                 });
-
+            
+                // Check if the selected source exists for the given quality
+                const selectedSource = sourceInput.value;
+                const selectedData = filteredQualityData.filter(item => item.sources.includes(selectedSource));
+            
                 // Show HOR CLEARANCE
-                horClearanceOutput.value = filteredQualityData.length > 0 ? filteredQualityData[0].horClearance : '';
+                horClearanceOutput.value = selectedData.length > 0 ? selectedData[0].horClearance : '';
             });
+
         }
 
 
