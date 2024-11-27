@@ -1,0 +1,246 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tube Products India</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        input[readonly] {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        /* Adding skyblue color for row 2 */
+        tr:nth-child(2) td {
+            background-color: skyblue;
+        }
+        /* Adding light green color for Slit Width row */
+        tr:nth-child(4) td,
+        tr:nth-child(5) td {
+            background-color: lightgreen;
+        }
+        /* Adding orange color for Scrap Width row */
+        tr:nth-child(5) td:last-child {
+            background-color: orange;
+        }
+        /* Adding yellow color for Plan Width row */
+        tr:nth-child(3) td:last-child {
+            background-color: yellow;
+        }
+        /* Adding pink color for HOR Clearance row */
+        tr:nth-child(6) td:last-child {
+            background-color: pink;
+        }
+        /* Adding violet color for Added row */
+        tr:nth-child(9) td:last-child {
+            background-color: violet;
+        } 
+   
+
+    </style>  
+</head>
+<body>
+    <table>
+        <!-- Row 1: Size (Width * Thickness) and Source & Quality -->
+        <tr>
+            <td colspan="2">
+           <span>Size =</span>     <input type="text" id="width-input" placeholder="Width" style="width: 100px;" oninput="calculateAdded()"> <span>X</span>
+                <select id="thickness-input" onchange="showOptions()">
+                    <option value="">Select Thickness</option>
+                    <option value="3.6">3.6</option>
+                    <option value="4.2">4.2</option>
+                    <option value="5.0">5.0</option>
+                    <option value="5.4">5.4</option>
+                    <option value="5.6">5.6</option>
+                    <option value="5.9">5.9</option>
+                    <option value="6.0">6.0</option>
+                    <option value="6.1">6.1</option>
+                    <option value="6.3">6.3</option>
+                    <option value="6.4">6.4</option>
+                    <option value="6.5">6.5</option>
+                    <option value="7.15">7.15</option>
+                    <option value="8.0">8.0</option>
+                </select>
+            </td>
+            <td colspan="2">
+              <span>Source :</span>  <select id="source-input" disabled>
+                    <option value="">Select Source</option>
+                </select>
+            </td>
+            <td colspan="3">
+               <span>Quality :</span> <select id="quality-select" disabled>
+             <option value="">Select Quality</option>
+                </select>
+            </td>
+        </tr>
+
+        <!-- Row 2: Nos of (Column 2 to 7) -->
+        <tr>
+            <td rowspan="2">Nos of</td>
+            <td rowspan="2"><input type="number" id="nos2" placeholder="Column 2" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos3" placeholder="Column 3" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos4" placeholder="Column 4" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos5" placeholder="Column 5" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos6" placeholder="Column 6" min="0" step="1"></td>
+            <td rowspan="2"><input type="number" id="nos7" placeholder="Column 7" min="0" step="1"></td>
+            <td style="background-color: yellow;"><span>Plan Width</span></td>
+        </tr>
+        <tr>
+            <td id="plan-width-output"><span> </span></td>
+        </tr>
+
+        <!-- Row 3: SLIT WIDTH -->
+        <tr>
+            <td rowspan="2">Slit Width</td>
+            <td rowspan="2"><input type="number" id="slit2" placeholder="Column 2" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit3" placeholder="Column 3" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit4" placeholder="Column 4" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit5" placeholder="Column 5" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit6" placeholder="Column 6" step="0.01"></td>
+            <td rowspan="2"><input type="number" id="slit7" placeholder="Column 7" step="0.01"></td>
+             <td style="background-color: orange;"><span>Scrap Width</span></td>
+        </tr>
+        <tr>
+            <td><span></span></td>
+        </tr>
+        
+
+        <!-- Row 6: Replace Merged Columns with HOR CLEARANCE -->
+        <tr>
+            <td rowspan="4">Coil No.</td>
+            <td colspan="4"><input type="text" placeholder="Column 2, 3, 4, 5"></td>
+            <td colspan="3"><span>HOR Clearance</span></td>
+        </tr>
+
+        <!-- Row 7: HOR CLEARANCE Output -->
+        <tr>
+            <td colspan="4"><input type="text" placeholder="Column 2, 3, 4, 5"></td>
+            <td style="background-color: pink;" colspan="3"><input type="text" placeholder="HOR CLEARANCE Output" id="hor-clearance-output" readonly></td>
+        </tr>
+
+        <!-- Row 8: Static text for ADDED -->
+        <tr>
+            <td colspan="4"><input type="text" placeholder=""></td>
+            <td style="background-color: violet;"colspan="3"><span>Added</span></td>
+        </tr>
+
+        <!-- Row 9: ADDED Input Field -->
+        <tr>
+            <td colspan="4"><input type="text" placeholder="Column 2, 3, 4, 5"></td>
+            <td colspan="3"><input type="text" placeholder="ADDED" id="added-input" readonly></td>
+        </tr>
+    </table>
+
+    <script>
+        function showOptions() {
+            const thickness = document.getElementById('thickness-input').value;
+            const sourceInput = document.getElementById('source-input');
+            const qualitySelect = document.getElementById('quality-select');
+            const horClearanceOutput = document.getElementById('hor-clearance-output');
+
+            const sourceOptions = ["JS", "TS", "ES", "DL", "SH", "KA"];
+            
+            sourceInput.disabled = false;
+            sourceInput.innerHTML = '';
+            sourceOptions.forEach(source => {
+                const option = document.createElement('option');
+                option.value = source;
+                option.text = source;
+                sourceInput.appendChild(option);
+            });
+            
+            qualitySelect.disabled = false;
+            qualitySelect.innerHTML = '';
+            
+            const thicknessQualityMap = {
+                "3.6": ["33", "60", "66", "34", "47", "76", "63"],
+                "4.2": ["47", "63", "66", "76"],
+                "5.0": ["63", "11"],
+                "5.4": ["60"],
+                "5.6": ["63", "11", "66", "68"],
+                "5.9": ["60", "66", "68"],
+                "6.0": ["60", "66", "65"],
+                "6.1": ["66", "65"],
+                "6.3": ["47", "63", "66", "68"],
+                "6.4": ["63", "66", "68", "67"],
+                "6.5": ["66", "68", "65"],
+                "7.15": ["60", "67"],
+                "8.0": ["25", "67"]
+            };
+
+            const horClearanceMap = {
+                "3.6": { "33": "1.9", "60": "1.625", "66": "1.625", "34": "1.625", "47": "1.5", "76": "1.5", "63": "1.625" },
+                "4.2": { "47": "1.75", "63": "1.875", "66": "1.875", "76": "1.875" },
+                "5.0": { "63": "2.375", "11": "2.375" },
+                "5.4": { "60": "2.625" },
+                "5.6": { "63": "2.625", "11": "2.625", "66": "2.625", "68": "2.625" },
+                "5.9": { "60": "2.875", "66": "2.875", "68": "2.875" },
+                "6.0": { "60": "3.0", "66": "3.0", "11": "3.0", "67": "3.0" },
+                "6.1": { "66": "3.25" },
+                "6.3": { "47": "3.25", "63": "3.375", "66": "3.375", "68": "3.375" },
+                "6.4": { "63": "3.5", "66": "3.5", "68": "3.5", "67": "3.5" },
+                "6.5": { "66": "3.75", "68": "3.75", "65": "3.75" },
+                "7.15": { "60": "4.0", "67": "4.0" },
+                "8.0": { "25": "4.25", "67": "4.25" }
+            };
+
+            if (thicknessQualityMap[thickness]) {
+                thicknessQualityMap[thickness].forEach(quality => {
+                    const option = document.createElement('option');
+                    option.value = quality;
+                    option.text = quality;
+                    qualitySelect.appendChild(option);
+                });
+            }
+
+            qualitySelect.addEventListener('change', () => {
+                const quality = qualitySelect.value;
+                horClearanceOutput.value = horClearanceMap[thickness][quality] || '';
+            });
+        }
+
+        function calculateAdded() {
+            const width = parseFloat(document.getElementById('width-input').value);
+            if (!isNaN(width)) {
+                const addedValue = (1800 - width) / 2;
+                document.getElementById('added-input').value = addedValue.toFixed(2);
+            }
+        }
+
+        function calculatePlanWidth() {
+            // Get values for "Nos of" and "SLIT WIDTH"
+            const nos2 = parseInt(document.getElementById('nos2').value) || 0;
+            const nos3 = parseInt(document.getElementById('nos3').value) || 0;
+            const nos4 = parseInt(document.getElementById('nos4').value) || 0;
+            const nos5 = parseInt(document.getElementById('nos5').value) || 0;
+            const nos6 = parseInt(document.getElementById('nos6').value) || 0;
+
+            const slit2 = parseFloat(document.getElementById('slit2').value) || 0;
+            const slit3 = parseFloat(document.getElementById('slit3').value) || 0;
+            const slit4 = parseFloat(document.getElementById('slit4').value) || 0;
+            const slit5 = parseFloat(document.getElementById('slit5').value) || 0;
+            const slit6 = parseFloat(document.getElementById('slit6').value) || 0;
+
+            // Calculate PLAN WIDTH
+            const planWidth = (nos2 * slit2) + (nos3 * slit3) + (nos4 * slit4) + (nos5 * slit5) + (nos6 * slit6);
+
+            // Display result
+            document.getElementById('plan-width-output').innerText = planWidth.toFixed(2);
+        }
+
+        // Add event listeners to input fields
+        const inputs = document.querySelectorAll('input[type="number"]');
+        inputs.forEach(input => {
+            input.addEventListener('input', calculatePlanWidth);
+        });
+    </script>
+</body>
+</html>
