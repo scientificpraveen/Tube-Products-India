@@ -317,22 +317,25 @@
                 "8.0": { "25": "4.25", "67": "4.25" }
             };
 
+            const qlsel=0;
+
             if (thicknessQualityMap[thickness]) {
                 thicknessQualityMap[thickness].forEach(quality => {
                     const option = document.createElement('option');
                     option.value = quality;
                     option.text = quality;
                     qualitySelect.appendChild(option);
+                    qlsel=option.value;
                 });
             }
 
             const TH = parseFloat(thickness);
-            const SO = qualitySelect.value//parseInt(document.getElementById('source-input').value);
-            const QL = parseInt(document.getElementById('quality-select').value);
+            const SO = qlsel;       //parseInt(document.getElementById('source-input').value);
+            const QL = qlsel;         //parseInt(document.getElementById('quality-select').value);
 
             qualitySelect.addEventListener('change', () => {
                 const quality = qualitySelect.value;
-                horClearanceOutput.value = SO;//horClearanceMap[thickness][quality] || '';
+                horClearanceOutput.value = QL;//horClearanceMap[thickness][quality] || '';
 
                 if(thickness=5.9 && QL==68 && SO==2)
                 {
