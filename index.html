@@ -317,7 +317,6 @@
                 "8.0": { "25": "4.25", "67": "4.25" }
             };
 
-            const qlsel;
 
             if (thicknessQualityMap[thickness]) {
                 thicknessQualityMap[thickness].forEach(quality => {
@@ -325,7 +324,6 @@
                     option.value = quality;
                     option.text = quality;
                     qualitySelect.appendChild(option);
-                    qlsel=option;
                 });
             }
 
@@ -335,7 +333,7 @@
 
             qualitySelect.addEventListener('change', () => {
                 const quality = qualitySelect.value;
-                horClearanceOutput.value = QL;//horClearanceMap[thickness][quality] || '';
+                horClearanceOutput.value = quality;//horClearanceMap[thickness][quality] || '';
 
                 if(thickness=5.9 && QL==68 && SO==2)
                 {
