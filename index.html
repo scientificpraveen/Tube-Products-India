@@ -3,66 +3,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tube Products India</title>
     <style>
-        table {
-            width: 70%;
-            border-collapse: collapse;
+        /* Basic reset and Flexbox container */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
+        body {
+            font-family: 'Canva Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1920px;
+            overflow: auto; /* Allow scroll if needed */
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            flex-shrink: 0;
+        }
+
         table, th, td {
             border: 1px solid black;
         }
+
         th, td {
             padding: 10px;
             text-align: center;
         }
-        
+
         input[readonly] {
             background-color: #f9f9f9;
             border: 1px solid #ddd;
         }
+
         /* Adding skyblue color for row 2 */
         tr:nth-child(2) td {
             background-color: skyblue;
         }
+
         /* Adding light green color for Slit Width row */
         tr:nth-child(4) td,
         tr:nth-child(5) td {
             background-color: lightgreen;
         }
+
         /* Adding orange color for Scrap Width row */
         tr:nth-child(5) td:last-child {
             background-color: orange;
         }
+
         /* Adding yellow color for Plan Width row */
         tr:nth-child(3) td:last-child {
             background-color: yellow;
         }
+
         /* Adding pink color for HOR Clearance row */
         tr:nth-child(6) td:last-child {
             background-color: pink;
         }
+
         /* Adding violet color for Added row */
         tr:nth-child(9) td:last-child {
             background-color: violet;
         }
-        
+
         input[type="number"], input[type="text"] {
             border: none;
             background-color: transparent;
             padding: 0;
-            font-size: 50px;
+            font-size: 20px; /* Smaller font size to fit the screen */
             font-weight: bold;
             color: black;
-            font-family: 'Canva Sans', sans-serif;
-        }
-        span.size-label{
-            font-size: 50px; /* Set font size to 50px */
-            font-family: 'Canva Sans', sans-serif; /* Optional: set font family */
-            font-weight: bold; /* Optional: make it bold */
-            color: black; /* Optional: set the color */
         }
-   
 
-    </style>  
+        span.size-label {
+            font-size: 20px; /* Adjust font size for better readability */
+            font-family: 'Canva Sans', sans-serif;
+            font-weight: bold;
+            color: black;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1920px) {
+            .table-container {
+                width: 100%;
+                overflow-x: auto; /* Enable horizontal scrolling */
+            }
+
+            table {
+                width: 100%;
+                min-width: 1200px; /* Ensure a minimum width for the table */
+            }
+
+            input[type="number"], input[type="text"] {
+                font-size: 16px; /* Adjust font size for smaller screens */
+            }
+
+            span.size-label {
+                font-size: 16px; /* Adjust font size for smaller screens */
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .table-container {
+                width: 100%;
+            }
+
+            table {
+                width: 100%;
+                font-size: 14px; /* Adjust font size for even smaller screens */
+            }
+        }
+    </style>
 </head>
 <body>
     <table>
