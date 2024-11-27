@@ -317,7 +317,7 @@
                 "8.0": { "25": "4.25", "67": "4.25" }
             };
 
-            const qlsel=0;
+            const qlsel;
 
             if (thicknessQualityMap[thickness]) {
                 thicknessQualityMap[thickness].forEach(quality => {
@@ -325,7 +325,7 @@
                     option.value = quality;
                     option.text = quality;
                     qualitySelect.appendChild(option);
-                    qlsel=option.value;
+                    qlsel=option;
                 });
             }
 
