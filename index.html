@@ -286,7 +286,7 @@
             qualitySelect.innerHTML = '';
             
             const thicknessQualityMap = {
-                 "3.6": ["33", "60", "66", "34", "47", "76", "63"],
+                "3.6": ["33", "60", "66", "34", "47", "76", "63"],
                 "4.2": ["47", "63", "66", "76"],
                 "5.0": ["63", "11"],
                 "5.4": ["60"],
@@ -329,6 +329,11 @@
             qualitySelect.addEventListener('change', () => {
                 const quality = qualitySelect.value;
                 horClearanceOutput.value = horClearanceMap[thickness][quality] || '';
+
+                if(thickness=5.9 && qualitySelect==68 && sourceInput=="ES")
+                {
+                    horClearanceOutput.value =3;
+                }
             });
         }
 
