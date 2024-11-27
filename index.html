@@ -362,10 +362,10 @@
         }
 
         function calculateScrapWidth() {  
-            const width = parseInt(document.getElementById('width-input').value) || 0;
-            const plan = parseInt(document.getElementById('plan-width-output').value) || 0;
+            int width = parseInt(document.getElementById('width-input').value) || 0;
+            int plan = parseInt(document.getElementById('plan-width-output').value) || 0;
 
-            const scrapWidth=width-plan;
+            int scrapWidth=width-plan;
             document.getElementById('scrap-width-output').innerText = scrapWidth.toFixed(2);
         }
             
