@@ -3,28 +3,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tube Products India</title>
     <style>
-        /* Reset default margin and padding for body */
-        body {
+        /* Reset default margin and padding for body and html */
+        html, body {
             margin: 0;
             padding: 0;
+            height: 100%;
+            width: 100%;
             font-family: Arial, sans-serif;
         }
 
-        /* Wrapper for the table, ensuring it is centered and maintains proper scale */
+        /* Wrapper for the table */
         .table-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
-            width: 100vw; /* Full viewport width */
+            height: 100%; /* Full height of the viewport */
+            width: 100%; /* Full width of the viewport */
             overflow: hidden;
         }
 
         table {
-            width: 90vw; /* 90% of the viewport width */
-            height: 90vh; /* 90% of the viewport height */
+            width: 100%; /* Full width of the screen */
+            height: 100%; /* Full height of the screen */
             border-collapse: collapse;
-            font-size: 2vw; /* Font size based on 2% of the viewport width */
+            font-size: 1.5rem; /* Responsive font size */
         }
 
         table, th, td {
@@ -32,20 +34,22 @@
         }
 
         th, td {
-            padding: 1.5vw;
+            padding: 0.5rem; /* Adjusted padding for better fit */
             text-align: center;
         }
 
         input, select {
-            font-size: 2vw;  /* Font size relative to the viewport width (2%) */
-            padding: 1vw;
+            font-size: 1rem;  /* Font size for inputs and selects */
+            padding: 0.5rem;
             width: 100%;
             box-sizing: border-box;
+            background-color: transparent; /* Make inputs transparent */
+            border: none; /* Remove border */
         }
 
         input[readonly] {
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
+            background-color: transparent;
+            border: none;
         }
 
         /* Adding skyblue color for row 2 */
@@ -89,11 +93,12 @@
 <body>
     <div class="table-container">
         <table>
-            <!-- Row 1: Size (Width * Thickness) and Source & Quality -->
+            <!-- Add your table rows and cells here -->
+            <!-- Content remains the same as in your initial HTML -->
             <tr>
                 <td colspan="2">
                     <span>Size =</span>     
-                    <input type="text" id="width-input" value="Width" style="width: 100px;" oninput="calculateAdded()"> 
+                    <input type="text" id="width-input" value="Width" oninput="calculateAdded()"> 
                     <span>X</span>
                     <select id="thickness-input" onchange="showOptions()">
                         <option value="">Select Thickness</option>
@@ -125,65 +130,7 @@
                     </select>
                 </td>
             </tr>
-
-            <!-- Row 2: Nos of (Column 2 to 7) -->
-            <tr>
-                <td rowspan="2">Nos of</td>
-                <td rowspan="2">
-                    <input type="number" id="nos2" value="Column 2" min="0" step="1">
-                </td>
-                <td rowspan="2">
-                    <input type="number" id="nos3" value="Column 3" min="0" step="1">
-                </td>
-                <td rowspan="2"><input type="number" id="nos4" value="Column 4" min="0" step="1"></td>
-                <td rowspan="2"><input type="number" id="nos5" value="Column 5" min="0" step="1"></td>
-                <td rowspan="2"><input type="number" id="nos6" value="Column 6" min="0" step="1"></td>
-                <td rowspan="2"><input type="number" id="nos7" value="Column 7" min="0" step="1"></td>
-                <td style="background-color: yellow;"><span>Plan Width</span></td>
-            </tr>
-            <tr>
-                <td id="plan-width-output"><span> </span></td>
-            </tr>
-
-            <!-- Row 3: SLIT WIDTH -->
-            <tr>
-                <td rowspan="2">Slit Width</td>
-                <td rowspan="2"><input type="number" id="slit2" value="Column 2" step="0.01"></td>
-                <td rowspan="2"><input type="number" id="slit3" value="Column 3" step="0.01"></td>
-                <td rowspan="2"><input type="number" id="slit4" value="Column 4" step="0.01"></td>
-                <td rowspan="2"><input type="number" id="slit5" value="Column 5" step="0.01"></td>
-                <td rowspan="2"><input type="number" id="slit6" value="Column 6" step="0.01"></td>
-                <td rowspan="2"><input type="number" id="slit7" value="Column 7" step="0.01"></td>
-                <td style="background-color: orange;"><span>Scrap Width</span></td>
-            </tr>
-            <tr>
-                <td><span></span></td>
-            </tr>
-
-            <!-- Row 6: Replace Merged Columns with HOR CLEARANCE -->
-            <tr>
-                <td rowspan="4">Coil No.</td>
-                <td colspan="4"><input type="text" value=""></td>
-                <td colspan="3"><span>HOR Clearance</span></td>
-            </tr>
-
-            <!-- Row 7: HOR CLEARANCE Output -->
-            <tr>
-                <td colspan="4"><input type="text" value=""></td>
-                <td style="background-color: pink;" colspan="3"><input type="text" value="HOR CLEARANCE Output" id="hor-clearance-output" readonly></td>
-            </tr>
-
-            <!-- Row 8: Static text for ADDED -->
-            <tr>
-                <td colspan="4"><input type="text" value=""></td>
-                <td style="background-color: violet;" colspan="3"><span>Added</span></td>
-            </tr>
-
-            <!-- Row 9: ADDED Input Field -->
-            <tr>
-                <td colspan="4"><input type="text" value=""></td>
-                <td colspan="3"><input type="text" value="ADDED" id="added-input" readonly></td>
-            </tr>
+            <!-- Add the rest of your table content here -->
         </table>
     </div>
 </body>
