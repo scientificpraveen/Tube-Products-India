@@ -375,8 +375,6 @@
                 { thick: "6.4", quality: "68", horClearance: "3.25", sources: ["JS", "TS", "ES", "DL", "SH", "KA"] },
                 { thick: "6.5", quality: "63", horClearance: "3.25", sources: ["JS", "TS", "ES", "DL", "SH", "KA"] },
                 { thick: "7.15", quality: "60", horClearance: "3.5", sources: ["JS", "TS", "ES", "DL", "SH", "KA"] },
-                { thick: "8", quality: "25", horClearance: "4", sources: ["JS", "TS", "ES", "DL", "SH", "KA"] },
-                { thick: "8", quality: "67", horClearance: "4", sources: ["JS", "TS", "ES", "DL", "SH", "KA"] }
             ];
 
             // Filter data based on thickness
@@ -395,7 +393,7 @@
             qualitySelect.addEventListener('change', () => {
                 const quality = qualitySelect.value;
                 const filteredQualityData = filteredData.filter(item => item.quality === quality);
-            
+
                 // Populate Source Input options
                 sourceInput.innerHTML = '<option value="">Select Source</option>';
                 const sources = [...new Set(filteredQualityData.flatMap(item => item.sources))];
@@ -405,15 +403,14 @@
                     option.text = source;
                     sourceInput.appendChild(option);
                 });
-            
-                // Check if the selected source exists for the given quality
-                const selectedSource = sourceInput.value;
-                const selectedData = filteredQualityData.filter(item => item.sources.includes(selectedSource));
-            
-                // Show HOR CLEARANCE
-                horClearanceOutput.value = selectedData.length > 0 ? selectedData[0].horClearance : '';
-            });
 
+                // Show HOR CLEARANCE based on selected source
+                sourceInput.addEventListener('change', () => {
+                    const source = sourceInput.value;
+                    const sourceData = filteredQualityData.filter(item => item.sources.includes(source));
+                    horClearanceOutput.value = sourceData.length > 0 ? sourceData[0].horClearance : '';
+                });
+            });
         }
 
 
