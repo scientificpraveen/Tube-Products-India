@@ -138,6 +138,13 @@
             color: black;
         }
 
+        span.small-label {
+            font-size: 10px; /* Adjust font size for better readability */
+            font-family: 'Canva Sans', sans-serif;
+            font-weight: bold;
+            color: black;
+        }
+
         /* Media Queries for Responsiveness */
         @media (max-width: 1920px) {
             .table-container {
@@ -178,13 +185,13 @@
             <td class="col1" colspan="4">
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <div>
-                        <span class="size-label" style="display: inline-block; width: 20px;">Width</span><br>
+                        <span class="small-label">Width</span><br>
                         <span class="size-label">Size =</span> 
                         <input type="text" id="width-input" value="" style="width: 150px;" oninput="calculateAdded()">
                         <span class="size-label">&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;</span>
                     </div>
                     <div>
-                        <span class="size-label" style="display: inline-block; width: 20px;">Thickness</span><br>
+                        <span class="small-label">Thickness</span><br>
                         <select id="thickness-input" style="width: 150px;" onchange="showOptions()">
                             <option value="">Select Thickness</option>
                             <option value="3.6">3.6</option>
