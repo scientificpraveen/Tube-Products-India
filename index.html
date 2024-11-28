@@ -175,34 +175,41 @@
     <table>
         <!-- Row 1: Size (Width * Thickness) and Source & Quality -->
         <tr>
-            <td class="col1"colspan="4">
-           <span class="size-label">Size =</span>     
-                <input type="text" id="width-input" value="Width" style="width: 150px;" oninput="calculateAdded()"> <span class="size-label">X</span>
-                <select id="thickness-input" style="width: 150px;" onchange="showOptions()">
-                    <option value="">Select Thickness</option>
-                    <option value="3.6">3.6</option>
-                    <option value="4.2">4.2</option>
-                    <option value="5.0">5.0</option>
-                    <option value="5.4">5.4</option>
-                    <option value="5.6">5.6</option>
-                    <option value="5.9">5.9</option>
-                    <option value="6.0">6.0</option>
-                    <option value="6.1">6.1</option>
-                    <option value="6.3">6.3</option>
-                    <option value="6.4">6.4</option>
-                    <option value="6.5">6.5</option>
-                    <option value="7.15">7.15</option>
-                    <option value="8.0">8.0</option>
-                </select>
+            <td class="col1" colspan="4">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div>
+                        <span class="size-label">Width</span><br>
+                        <input type="text" id="width-input" value="Width" style="width: 150px;" oninput="calculateAdded()">
+                    </div>
+                    <div>
+                        <span class="size-label">Thickness</span><br>
+                        <select id="thickness-input" style="width: 150px;" onchange="showOptions()">
+                            <option value="">Select Thickness</option>
+                            <option value="3.6">3.6</option>
+                            <option value="4.2">4.2</option>
+                            <option value="5.0">5.0</option>
+                            <option value="5.4">5.4</option>
+                            <option value="5.6">5.6</option>
+                            <option value="5.9">5.9</option>
+                            <option value="6.0">6.0</option>
+                            <option value="6.1">6.1</option>
+                            <option value="6.3">6.3</option>
+                            <option value="6.4">6.4</option>
+                            <option value="6.5">6.5</option>
+                            <option value="7.15">7.15</option>
+                            <option value="8.0">8.0</option>
+                        </select>
+                    </div>
+                </div>
             </td>
             <td colspan="2">
-              <span class="size-label">Source: </span> <select id="source-input" disabled style="width: 200px;">
+                <span class="size-label">Source: </span> <select id="source-input" disabled style="width: 200px;">
                     <option value="">-</option>
                 </select>
             </td>
             <td colspan="2">
-               <span class="size-label">Quality: </span> <select id="quality-select" disabled style="width: 200px;">
-             <option value="">-</option>
+                <span class="size-label">Quality: </span> <select id="quality-select" disabled style="width: 200px;">
+                    <option value="">-</option>
                 </select>
             </td>
         </tr>
@@ -283,62 +290,6 @@
     </table>
 
     <script>
-        /*function showOptions() {
-            const thickness = document.getElementById('thickness-input').value;
-            const sourceInput = document.getElementById('source-input');
-            const qualitySelect = document.getElementById('quality-select');
-            const horClearanceOutput = document.getElementById('hor-clearance-output');
-
-            const sourceOptions = ["JS", "TS", "ES", "DL", "SH", "KA"];
-            
-            sourceInput.disabled = false;
-            sourceInput.innerHTML = '';
-            sourceOptions.forEach(source => {
-                const option = document.createElement('option');
-                option.value = source;
-                option.text = source;
-                sourceInput.appendChild(option);
-            });
-            
-            qualitySelect.disabled = false;
-            qualitySelect.innerHTML = '';
-            
-            const thicknessQualityMap = {
-                "3.6": ["33", "60", "66", "34", "47", "76", "63"],
-                "4.2": ["47", "63", "66", "76"],
-                "5.0": ["63", "11"],
-                "5.4": ["60"],
-                "5.6": ["63", "11", "66", "68"],
-            };
-
-            const horClearanceMap = {
-                "3.6": { "33": "1.9", "60": "1.625", "66": "1.625", "34": "1.625", "47": "1.5", "76": "1.5", "63": "1.625" },
-                "4.2": { "47": "1.75", "63": "1.875", "66": "1.875", "76": "1.875" },
-                "5.0": { "63": "2.375", "11": "2.375" },
-                "5.4": { "60": "2.625" },
-                "5.6": { "63": "2.625", "11": "2.625", "66": "2.625", "68": "2.625" },
-            };
-
-
-            if (thicknessQualityMap[thickness]) {
-                thicknessQualityMap[thickness].forEach(quality => {
-                    const option = document.createElement('option');
-                    option.value = quality;
-                    option.text = quality;
-                    qualitySelect.appendChild(option);
-                });
-            }
-
-            
-
-            qualitySelect.addEventListener('change', () => {
-                const quality = qualitySelect.value;
-                horClearanceOutput.value = horClearanceMap[thickness][quality] || '';
-            });     
-        }*/
-
-
-
         function showOptions() {
             const thickness = document.getElementById('thickness-input').value;
             const qualitySelect = document.getElementById('quality-select');
