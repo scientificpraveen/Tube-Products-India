@@ -296,7 +296,8 @@
                 <input type="text" value="" id="added-input" readonly style="width: 200px; text-align: center;">
             </td>
             <td class="col4" colspan="2" style="text-align: center;">
-                 <input type="text" value="" style="width: 500px; text-align: center;">
+                 <span class="size-label">Manual:</span>
+                 <input type="text" value="" style="width: 200px; text-align: center;">
             </td>
         </tr>
     </table>
@@ -402,6 +403,14 @@
             const width = parseFloat(document.getElementById('width-input').value);
             if (!isNaN(width)) {
                 const addedValue = (1800 - width) / 2;
+                if(addedValue<1300)
+                {
+                    addedValue=250;
+                }
+                else
+                {
+                    addedValue=350;
+                }
                 document.getElementById('added-input').value = addedValue.toFixed(2);
             }
         }
