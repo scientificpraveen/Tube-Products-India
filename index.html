@@ -403,14 +403,14 @@
             const width = parseFloat(document.getElementById('width-input').value);
             if (!isNaN(width)) {
                 let  addedValue = (1800 - width) / 2;
-                /*if(addedValue<1300)
+                if(width<1300)
                 {
                     addedValue=250;
                 }
                 else
                 {
                     addedValue=350;
-                }*/
+                }
                 document.getElementById('added-input').value = addedValue.toFixed(2);
             }
         }
